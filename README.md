@@ -35,8 +35,6 @@ A stack is a collection of elements with a last-in, first-out (LIFO) ordering, m
    - [max](#max)
    - [Iterable](#iterable)
 3. [Usage Example](#usage-example)
-4. [Contributing](#contributing)
-5. [License](#license)
 
 ## Description
 
@@ -188,7 +186,7 @@ for (const item of stack) {
 Description: Makes the stack iterable. Allows the stack to be used in for...of loops and other iterable contexts.
 Returns: An iterator that yields the elements of the stack.
 
-## Usage Examples
+<h2 id="usage-example">Usage example</h2>
 
 ```javascript
 // Create a new stack with a maximum capacity of 5

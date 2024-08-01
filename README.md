@@ -6,6 +6,7 @@ This repository provides implementations of various data structures in JavaScrip
 
 1. **[Introduction](#introduction)**
 2. **[Stack](#stack)**
+3. **[Set](#set)**
 
 ---
 
@@ -34,7 +35,7 @@ A stack is a collection of elements with a last-in, first-out (LIFO) ordering, m
    - [min](#min)
    - [max](#max)
    - [Iterable](#iterable)
-3. [Usage Example](#usage-example)
+3. [Usage Example](#stack-usage-example)
 
 ## Description
 
@@ -186,37 +187,174 @@ for (const item of stack) {
 Description: Makes the stack iterable. Allows the stack to be used in for...of loops and other iterable contexts.
 Returns: An iterator that yields the elements of the stack.
 
-<h2 id="usage-example">Usage example</h2>
+<h2 id="stack-usage-example">Usage example</h2>
 
 ```javascript
 // Create a new stack with a maximum capacity of 5
-const stack = new Stack(5);
+const stack = new Stack(5)
 
 // Add elements to the stack
-stack.push('JavaScript 💛');
-stack.unshift(69);
+stack.push('JavaScript 💛')
+stack.unshift(69)
 
 // Print the stack
-console.log(stack.print()); // Output: {"0":69,"1":"JavaScript 💛"}
+console.log(stack.print()) // Output: {"0":69,"1":"JavaScript 💛"}
 
 // Peek at the top element
-console.log(stack.peek()); // Output: "JavaScript 💛"
+console.log(stack.peek()) // Output: "JavaScript 💛"
 
 // Check if the stack contains a specific element
-console.log(stack.contains(69)); // Output: true
+console.log(stack.contains(69)) // Output: true
 
 // Reverse the stack
-stack.reverse();
-console.log(stack.print()); // Output: {"0":"JavaScript 💛","1":69}
+stack.reverse()
+console.log(stack.print()) // Output: {"0":"JavaScript 💛","1":69}
 
 // Remove and print elements
-console.log(stack.pop()); // Output: "JavaScript 💛"
-console.log(stack.shift()); // Output: 69
+console.log(stack.pop()) // Output: "JavaScript 💛"
+console.log(stack.shift()) // Output: 69
 
 // Check stack size
-console.log(stack.size()); // Output: 0
+console.log(stack.size()) // Output: 0
 
 // Clear the stack
-stack.clear();
-console.log(stack.isEmpty()); // Output: true
+stack.clear()
+console.log(stack.isEmpty()) // Output: true
+```
+
+## Set
+
+A set is a collection of unique elements. This implementation includes various methods to interact with the set, such as adding, removing, and performing set operations like union, intersection, and difference.
+
+## Table of Contents
+
+1. [Description](#description)
+2. [Features](#features)
+3. [Methods](#methods)
+   - [has](#has)
+   - [values](#values)
+   - [add](#add)
+   - [remove](#remove)
+   - [size](#size)
+   - [union](#union)
+   - [combine](#combine)
+   - [intersection](#intersection)
+   - [difference](#difference)
+4. [Usage Example](#set-usage-example)
+
+## Description
+
+The `CustomSet` class provides a variety of methods to manage a set of unique elements. It supports standard set operations, such as union, intersection, and difference, and provides utility methods to interact with the set.
+
+## Features
+
+- **Unique Elements**: Ensures all elements in the set are unique.
+- **Standard Set Operations**: Add, remove elements and check for containment.
+- **Set Operations**: Perform union, intersection, and difference with other sets.
+- **Utility Methods**: Retrieve all values in the set and check the size of the set.
+
+## Methods
+
+### `has(element)`
+
+```javascript
+customSet.has(element)
+```
+Description: Checks if the specified element is in the set.
+Parameters:
+element: The element to check for.
+Returns: true if the element is found, otherwise false.
+
+### `values()`
+
+```javascript
+customSet.values()
+```
+Description: Returns all the elements in the set.
+Returns: An array of elements in the set.
+
+### `add()`
+
+```javascript
+customSet.add()
+```
+Description: Adds an element to the set if it is not already present.
+Parameters:
+element: The element to add.
+Returns: true if the element was added, otherwise false.
+
+### `remove(element)`
+
+```javascript
+customSet.remove(element)
+```
+Description: Removes the specified element from the set if it is present.
+Parameters:
+element: The element to remove.
+Returns: true if the element was removed, otherwise false.
+
+### `size()`
+
+```javascript
+customSet.size()
+```
+Description: Returns the number of elements in the set.
+Returns: The count of elements in the set.
+
+### `union(otherSet)`
+
+```javascript
+customSet.union(otherSet)
+```
+Description: Returns a new set that is the union of the original set and the given set.
+Parameters:
+otherSet: Another instance of CustomSet.
+Returns: A new CustomSet instance representing the union of the two sets.
+
+### `intersection(otherSet)`
+
+```javascript
+customSet.intersection(otherSet)
+```
+Description: Returns a new set that is the intersection of the original set and the given set.
+Parameters:
+otherSet: Another instance of CustomSet.
+Returns: A new CustomSet instance representing the intersection of the two sets.
+
+### `difference(otherSet)`
+
+```javascript
+customSet.difference(otherSet)
+```
+Description: Returns a new set that is the difference of the original set and the given set.
+Parameters:
+otherSet: Another instance of CustomSet.
+Returns: A new CustomSet instance representing the difference of the two sets.
+
+<h2 id="set-usage-example">Usage example</h2>
+
+```javascript
+// Create a new set
+const setA = new CustomSet();
+setA.add(1);
+setA.add(2);
+setA.add(3);
+
+// Create another set
+const setB = new CustomSet();
+setB.add(3);
+setB.add(4);
+setB.add(5);
+
+// Union of setA and setB
+const unionSet = setA.union(setB);
+console.log(unionSet.values()); // Output: [1, 2, 3, 4, 5]
+
+// Intersection of setA and setB
+const intersectionSet = setA.intersection(setB);
+console.log(intersectionSet.values()); // Output: [3]
+
+// Difference of setA and setB
+const differenceSet = setA.difference(setB);
+console.log(differenceSet.values()); // Output: [1, 2]
 ```

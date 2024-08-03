@@ -518,7 +518,3 @@ console.log(exists); // true
 // Perform in-order traversal
 const result = bst.inOrderTraversal(bst.root);
 console.log(result); // [5, 10, 15]
-
-```
-
-```

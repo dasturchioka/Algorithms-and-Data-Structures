@@ -7,6 +7,7 @@ This repository provides implementations of various data structures in JavaScrip
 1. **[Introduction](#introduction)**
 2. **[Stack](#stack)**
 3. **[Set](#set)**
+4. **[Binary Search Tree](#bst)**
 
 ---
 
@@ -260,6 +261,7 @@ The `CustomSet` class provides a variety of methods to manage a set of unique el
 ```javascript
 customSet.has(element)
 ```
+
 Description: Checks if the specified element is in the set.
 Parameters:
 element: The element to check for.
@@ -270,6 +272,7 @@ Returns: true if the element is found, otherwise false.
 ```javascript
 customSet.values()
 ```
+
 Description: Returns all the elements in the set.
 Returns: An array of elements in the set.
 
@@ -278,6 +281,7 @@ Returns: An array of elements in the set.
 ```javascript
 customSet.add()
 ```
+
 Description: Adds an element to the set if it is not already present.
 Parameters:
 element: The element to add.
@@ -288,6 +292,7 @@ Returns: true if the element was added, otherwise false.
 ```javascript
 customSet.remove(element)
 ```
+
 Description: Removes the specified element from the set if it is present.
 Parameters:
 element: The element to remove.
@@ -298,6 +303,7 @@ Returns: true if the element was removed, otherwise false.
 ```javascript
 customSet.size()
 ```
+
 Description: Returns the number of elements in the set.
 Returns: The count of elements in the set.
 
@@ -306,6 +312,7 @@ Returns: The count of elements in the set.
 ```javascript
 customSet.union(otherSet)
 ```
+
 Description: Returns a new set that is the union of the original set and the given set.
 Parameters:
 otherSet: Another instance of CustomSet.
@@ -316,6 +323,7 @@ Returns: A new CustomSet instance representing the union of the two sets.
 ```javascript
 customSet.intersection(otherSet)
 ```
+
 Description: Returns a new set that is the intersection of the original set and the given set.
 Parameters:
 otherSet: Another instance of CustomSet.
@@ -326,6 +334,7 @@ Returns: A new CustomSet instance representing the intersection of the two sets.
 ```javascript
 customSet.difference(otherSet)
 ```
+
 Description: Returns a new set that is the difference of the original set and the given set.
 Parameters:
 otherSet: Another instance of CustomSet.
@@ -335,26 +344,180 @@ Returns: A new CustomSet instance representing the difference of the two sets.
 
 ```javascript
 // Create a new set
-const setA = new CustomSet();
-setA.add(1);
-setA.add(2);
-setA.add(3);
+const setA = new CustomSet()
+setA.add(1)
+setA.add(2)
+setA.add(3)
 
 // Create another set
-const setB = new CustomSet();
-setB.add(3);
-setB.add(4);
-setB.add(5);
+const setB = new CustomSet()
+setB.add(3)
+setB.add(4)
+setB.add(5)
 
 // Union of setA and setB
-const unionSet = setA.union(setB);
-console.log(unionSet.values()); // Output: [1, 2, 3, 4, 5]
+const unionSet = setA.union(setB)
+console.log(unionSet.values()) // Output: [1, 2, 3, 4, 5]
 
 // Intersection of setA and setB
-const intersectionSet = setA.intersection(setB);
-console.log(intersectionSet.values()); // Output: [3]
+const intersectionSet = setA.intersection(setB)
+console.log(intersectionSet.values()) // Output: [3]
 
 // Difference of setA and setB
-const differenceSet = setA.difference(setB);
-console.log(differenceSet.values()); // Output: [1, 2]
+const differenceSet = setA.difference(setB)
+console.log(differenceSet.values()) // Output: [1, 2]
+```
+
+<h2 id="bst">Binary Search Tree</h2>
+
+A BST is a node-based binary tree data structure in which each node has at most two children referred to as the left child and the right child. For each node, the value of all the nodes in the left subtree is less than the value of the node, and the value of all the nodes in the right subtree is greater than the value of the node.
+
+## Table of Contents
+
+1. [Description](#description)
+2. [Features](#features)
+3. [Classes](#classes)
+   - [TreeNode](#treenode)
+   - [BinarySearchTree](#binarysearchtree)
+4. [Methods](#methods)
+   - [TreeNode Methods](#treenode-methods)
+   - [BinarySearchTree Methods](#binarysearchtree-methods)
+     - [insert](#insert)
+     - [find](#find)
+     - [contains](#contains)
+     - [inOrderTraversal](#inordertraversal)
+5. [Usage Example](#bst-usage-example)
+
+## Description
+
+The `BinarySearchTree` class provides a way to create and manage a binary search tree. This implementation includes methods for inserting values, searching for values, checking for containment, and performing in-order traversal.
+
+## Features
+
+- **Node Insertion**: Insert values into the BST maintaining the binary search property.
+- **Value Search**: Search for specific values in the BST.
+- **Containment Check**: Check if a value exists in the BST.
+- **Traversal**: Perform in-order traversal to get values in sorted order.
+
+## Classes
+
+### `TreeNode`
+
+The `TreeNode` class represents a node in the binary search tree.
+
+#### Properties
+
+- `value`: The value stored in the node.
+- `right`: Reference to the right child node.
+- `left`: Reference to the left child node.
+
+### `BinarySearchTree`
+
+The `BinarySearchTree` class represents the binary search tree itself.
+
+#### Properties
+
+- `root`: The root node of the BST.
+
+## Methods
+
+### TreeNode Methods
+
+No specific methods for `TreeNode` are exposed; nodes are managed internally by the `BinarySearchTree` methods.
+
+### BinarySearchTree Methods
+
+#### `insert`
+
+```javascript
+insert(value)
+```
+
+Description: Inserts a value into the BST.
+Parameters:
+value: The value to insert.
+Returns: The BST instance with the new value inserted.
+
+Example:
+
+```javascript
+bst.insert(10)
+```
+
+#### `find(value)`
+
+```javascript
+find(value)
+```
+
+Description: Searches for a value in the BST.
+Parameters:
+value: The value to search for.
+Returns: The node containing the value if found, otherwise undefined.
+
+Example:
+
+```javascript
+const node = bst.find(10)
+```
+
+#### `contains(value)`
+
+```javascript
+contains(value)
+```
+
+Description: Checks if a value exists in the BST.
+Parameters:
+value: The value to check for.
+Returns: true if the value is found, otherwise false.
+
+Example:
+
+```javascript
+const exists = bst.contains(10)
+```
+
+#### `inOrderTraversal`
+
+```javascript
+inOrderTraversal(node, (result = []))
+```
+
+Description: Performs in-order traversal of the BST.
+Parameters:
+node: The starting node for the traversal.
+result: An array to store the traversal results.
+Returns: An array of values in in-order.
+
+Example:
+
+```javascript
+const result = bst.inOrderTraversal(bst.root)
+```
+
+<h2 id="bst-usage-example">Usage example</h2>
+```javascript
+// Create a new Binary Search Tree
+const bst = new BinarySearchTree();
+
+// Insert values
+bst.insert(10);
+bst.insert(5);
+bst.insert(15);
+
+// Search for a value
+const node = bst.find(10);
+console.log(node); // TreeNode { value: 10, right: TreeNode {...}, left: TreeNode {...} }
+
+// Check if a value exists
+const exists = bst.contains(5);
+console.log(exists); // true
+
+// Perform in-order traversal
+const result = bst.inOrderTraversal(bst.root);
+console.log(result); // [5, 10, 15]
+
+```
+
 ```

@@ -497,6 +497,7 @@ const result = bst.inOrderTraversal(bst.root)
 ```
 
 <h2 id="bst-usage-example">Usage example</h2>
+
 ```javascript
 // Create a new Binary Search Tree
 const bst = new BinarySearchTree();
